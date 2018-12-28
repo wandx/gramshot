@@ -14,12 +14,13 @@ class ScheduleAdd extends StatefulWidget {
 }
 
 class ScheduleAddState extends State<ScheduleAdd> {
-  DateTime _selectedDate = DateTime.now();
+  DateTime _selectedDate;
   List<String> _mediaIds = [];
 
   @override
   void initState() {
     _mediaKeys();
+    _selectedDate = DateTime.now();
     super.initState();
   }
 
