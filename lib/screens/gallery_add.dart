@@ -108,6 +108,7 @@ class GalleryAddState extends State<GalleryAdd> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(hintText: "Caption"),
+                  maxLines: 3,
                   onChanged: (val) {
                     setState(() => _caption = val);
                   },
