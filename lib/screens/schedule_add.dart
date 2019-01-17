@@ -68,7 +68,7 @@ class ScheduleAddState extends State<ScheduleAdd> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.25,
               child: Card(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -88,6 +88,7 @@ class ScheduleAddState extends State<ScheduleAdd> {
                         setState(() => _selectedItem = val);
                         print(_selectedItem);
                       },
+                      value: _selectedItem,
                       hint: Text("Pilih waktu upload"),
                     ),
                     RaisedButton(
