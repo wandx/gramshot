@@ -84,7 +84,7 @@ class ScheduleAddState extends State<ScheduleAdd> {
                     ),
                     DropdownButton(
                       items: _items,
-                      onChanged: (val){
+                      onChanged: (val) {
                         setState(() => _selectedItem = val);
                         print(_selectedItem);
                       },
