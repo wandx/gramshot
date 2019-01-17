@@ -16,11 +16,28 @@ class ScheduleAdd extends StatefulWidget {
 class ScheduleAddState extends State<ScheduleAdd> {
   DateTime _selectedDate;
   List<String> _mediaIds = [];
+  List<DropdownMenuItem<int>> _items = [
+    DropdownMenuItem(value: 1, child: Text("00:00:00 - 02:00:00")),
+    DropdownMenuItem(value: 2, child: Text("02:01:00 - 04:00:00")),
+    DropdownMenuItem(value: 3, child: Text("04:01:00 - 06:00:00")),
+    DropdownMenuItem(value: 4, child: Text("06:01:00 - 08:00:00")),
+    DropdownMenuItem(value: 5, child: Text("08:01:00 - 10:00:00")),
+    DropdownMenuItem(value: 6, child: Text("10:01:00 - 12:00:00")),
+    DropdownMenuItem(value: 7, child: Text("12:01:00 - 14:00:00")),
+    DropdownMenuItem(value: 8, child: Text("14:01:00 - 16:00:00")),
+    DropdownMenuItem(value: 9, child: Text("16:01:00 - 18:00:00")),
+    DropdownMenuItem(value: 10, child: Text("18:01:00 - 20:00:00")),
+    DropdownMenuItem(value: 11, child: Text("20:01:00 - 22:00:00")),
+    DropdownMenuItem(value: 12, child: Text("22:01:00 - 23:59:00")),
+  ];
+
+  int _selectedItem;
 
   @override
   void initState() {
     _mediaKeys();
     _selectedDate = DateTime.now();
+    _selectedItem = 1;
     super.initState();
   }
 
@@ -36,6 +53,7 @@ class ScheduleAddState extends State<ScheduleAdd> {
             "post_date":
                 (new DateFormat("yyyy-MM-dd hh:mm:ss").format(_selectedDate)),
             "images": _mediaIds,
+            "batch_id": _selectedItem,
           };
           await scheduleRepo.storeSchedule(body).then((res) {
             if (res) {
@@ -63,6 +81,14 @@ class ScheduleAddState extends State<ScheduleAdd> {
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),
+                    ),
+                    DropdownButton(
+                      items: _items,
+                      onChanged: (val){
+                        setState(() => _selectedItem = val);
+                        print(_selectedItem);
+                      },
+                      hint: Text("Pilih waktu upload"),
                     ),
                     RaisedButton(
                       onPressed: () async {
