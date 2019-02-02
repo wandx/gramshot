@@ -111,7 +111,7 @@ class ScheduleAddState extends State<ScheduleAdd> {
     await showDatePicker(
       context: context,
       initialDate: _selectedDate,
-      firstDate: _selectedDate,
+      firstDate: (new DateTime.now()).subtract(Duration(days: 1)),
       lastDate: DateTime(2100),
     ).then((picked) {
       if (picked != null && picked != _selectedDate) {
