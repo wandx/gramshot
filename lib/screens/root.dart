@@ -22,6 +22,7 @@ class Root extends StatelessWidget {
         builder: (context, child, m) {
           return MaterialApp(
             title: "Gramshot",
+            debugShowCheckedModeBanner: false,
             theme: ThemeData(
               primarySwatch: Colors.red,
             ),
