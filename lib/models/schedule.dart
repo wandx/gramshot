@@ -1,8 +1,7 @@
-import 'package:gramshot/models/account.dart';
 import 'package:gramshot/models/media.dart';
 
 class Schedule {
-  final Account account;
+//  final Account account;
   final List<Media> media;
   final String postDate;
   final DateTime detailedDate;
@@ -10,7 +9,7 @@ class Schedule {
   final String id;
 
   Schedule({
-    this.account,
+//    this.account,
     this.media,
     this.postDate,
     this.status,
@@ -20,7 +19,7 @@ class Schedule {
 
   factory Schedule.fromJson(Map<String, dynamic> json) {
     return Schedule(
-      account: Account.fromJson(json["account"]),
+//      account: Account.fromJson(json["account"]),
       media: json["media"].map<Media>((m) => Media.fromJson(m)).toList(),
       postDate: json["post_date"],
       status: json["status"],

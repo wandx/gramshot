@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:gramshot/app_model.dart';
 import 'package:gramshot/repos/account_repo.dart' as accountRepo;
@@ -54,7 +56,7 @@ class _AccountListState extends State<AccountList> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  _defaultAccountCard(),
+//                  _defaultAccountCard(),
                   Expanded(
                     child: RefreshIndicator(
                       key: _refreshIndicatorState,
@@ -69,18 +71,18 @@ class _AccountListState extends State<AccountList> {
                               ),
                               trailing: PopupMenuButton(
                                 itemBuilder: (context) => <PopupMenuEntry>[
-                                      PopupMenuItem(
-                                        child: GestureDetector(
-                                          child: Text("Set Default"),
-                                          onTap: () async {
-                                            await widget.model
-                                                .setDefaultAccount(
-                                              widget.model.accounts[idx].id,
-                                            );
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                      ),
+//                                      PopupMenuItem(
+//                                        child: GestureDetector(
+//                                          child: Text("Set Default"),
+//                                          onTap: () async {
+//                                            await widget.model
+//                                                .setDefaultAccount(
+//                                              widget.model.accounts[idx].id,
+//                                            );
+//                                            Navigator.pop(context);
+//                                          },
+//                                        ),
+//                                      ),
                                       PopupMenuItem(
                                         child: GestureDetector(
                                           child: Text("Edit Akun"),

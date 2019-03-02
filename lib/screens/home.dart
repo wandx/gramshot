@@ -80,7 +80,10 @@ class HomeState extends State<Home> {
                 await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => new ScheduleAdd(mediaMap: _mediaMap),
+                    builder: (context) => new ScheduleAdd(
+                          mediaMap: _mediaMap,
+                          accounts: widget.model.accounts,
+                        ),
                   ),
                 ).then((res) {
                   if (res != null && res) {

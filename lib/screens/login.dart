@@ -132,9 +132,12 @@ class LoginState extends State<Login> {
                           ),
                     );
                     await widget.model.login(_credential).then((_) {
+                      print("mlebu");
                       if (widget.model.isAuth) {
                         Navigator.pushReplacementNamed(context, "root");
                       }
+                    }).catchError((error) {
+                      print(error);
                     });
 //                    Navigator.pushReplacementNamed(context, "home");
                   },

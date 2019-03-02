@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:gramshot/models/credential.dart';
@@ -8,6 +9,7 @@ Future<String> login(Credential credential) async {
   return await req
       .regular("post", "auth/login", body: jsonEncode(credential.toJson()))
       .then((response) async {
+    print(response.body);
     if (response.statusCode == 200) {
       print(response.body);
       var parsed = json.decode(response.body);
@@ -15,6 +17,8 @@ Future<String> login(Credential credential) async {
       return parsed["data"]["token"];
     }
     return null;
+  }).catchError((error) {
+    print(error);
   });
 }
 

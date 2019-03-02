@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:gramshot/models/schedule.dart';
@@ -18,8 +19,9 @@ Future<List<Schedule>> getSchedules() async {
 
 Future<bool> storeSchedule(Map<String, dynamic> body) async {
   return await req
-      .withAuth("post", "user/schedule/store", body: jsonEncode(body))
+      .withAuth("post", "user/schedule/store2", body: jsonEncode(body))
       .then((response) {
+    print(response.body);
     return response.statusCode == 201;
   });
 }

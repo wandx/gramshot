@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:gramshot/models/account.dart';
 import 'package:gramshot/models/credential.dart';
 import 'package:gramshot/models/media.dart';
@@ -10,6 +12,7 @@ import 'package:gramshot/repos/schedule_repo.dart' as scheduleRepo;
 import 'package:gramshot/repos/user_repo.dart' as userRepo;
 import 'package:gramshot/utils/helpers.dart' as helpers;
 import 'package:scoped_model/scoped_model.dart';
+
 
 class AppModel extends Model {
   User user;
@@ -95,6 +98,8 @@ class AppModel extends Model {
     }).then((bool isLoggedIn) async {
       this.isAuth = isLoggedIn;
       await this.getMedia();
+    }).catchError((error) {
+      print(error);
     });
   }
 
